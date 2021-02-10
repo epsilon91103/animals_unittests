@@ -8,10 +8,6 @@ from ducks import Duck
 class TestAnimals:
     validation = {}
 
-    def __new__(cls, *args, **kwargs):
-        instance = super().__new__(cls)
-        return instance
-
     def test_init(self):
         self.animal.say()
         self.assertEqual(self.animal.get_energy(), self.validation['init'])
