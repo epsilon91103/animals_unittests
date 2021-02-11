@@ -1,19 +1,11 @@
-from basic_classes import Animal
+from basic_classes import FlyAnimal, SwimAnimal
 
 
-class FishSimple(Animal):
-    def __init__(self, name, energy=100, init_parameters=None):
-        super().__init__(name, energy, init_parameters)
-
-    def swim(self):
-        print(f"My name is '{self.name}' and i swimming")
-        self.energy = self.energy - 5
+class FishSimple(SwimAnimal):
+    def __init__(self, name, energy=100, **init_parameters):
+        super().__init__(name, energy, **init_parameters)
 
 
-class FishCanFly(FishSimple):
-    def __init__(self, name, energy=100, init_parameters=None):
-        super().__init__(name, energy, init_parameters)
-
-    def fly(self):
-        print(f"My name is '{self.name}' and i flying")
-        self.energy = self.energy - 20
+class FishCanFly(FishSimple, FlyAnimal):
+    def __init__(self, name, energy=100, **init_parameters):
+        super().__init__(name, energy, **init_parameters)
